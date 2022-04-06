@@ -3,7 +3,7 @@
     <div id="nav">
       <br />
 
-      <b-row>
+      <!-- <b-row>
         <div align="center">
           <h3>کاربر گرامی خوش آمدید</h3>
         </div>
@@ -56,10 +56,10 @@
                     color="#10503B"
                     >ورود
                   </v-btn>
-                  <!-- 
+                  
                   <a href="/ForgotPassword" style="text-decoration: none">
                     رمز عبور خود را فراموش کردید؟
-                  </a> -->
+                  </a>
                 </div>
               </b-form>
             </b-card>
@@ -67,7 +67,7 @@
         </b-col>
 
         <b-col cols="3"> </b-col>
-      </b-row>
+      </b-row> -->
       <br />
       <br />
       <br />

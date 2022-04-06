@@ -1,14 +1,14 @@
 <template>
   <v-app class="home" style="font-family: IRYekan">
     <b-row dir="rtl">
-      <b-col cols="1"> </b-col>
+      <b-col cols="2"> </b-col>
 
-      <b-col cols="10">
+      <b-col cols="8">
         <b-row class="topnav p-4">
           <b-col cols="4">
             <b-navbar-brand>
               <router-link to="/">
-                <h4><b> روند 24 </b></h4>
+                <h4><b style="color: black"> روند 24 </b></h4>
               </router-link>
             </b-navbar-brand>
           </b-col>
@@ -41,8 +41,8 @@
                 alt="طلاگرام"
               />
             </b-navbar-brand>
-          </b-navbar>
-        </div>  -->
+            </b-navbar>
+            </div>  -->
 
             <b-collapse class="mr-15" id="nav-collapse" is-nav>
               <b-navbar-nav>
@@ -52,44 +52,61 @@
                   </h6>
                 </b-nav-item>
 
-                 <b-nav-item-dropdown text="انرژی" style="font-size: 1.2rem;">
-                    <b-dropdown-item
-                      dir="rtl"
-                      align="right"
-                      style="color: red; "
-                      href="#"
-                      
-                      >نفت و گاز</b-dropdown-item
-                    >
-                    <b-dropdown-item href="#">پالایشی</b-dropdown-item>
-                    <b-dropdown-item href="#">پتروشیمی</b-dropdown-item>
-                  </b-nav-item-dropdown>
+                <b-nav-item-dropdown
+                  text="انرژی"
+                  style="font-size: 1.2rem; font-weight: bold"
+                >
+                  <b-dropdown-item
+                    dir="rtl"
+                    align="right"
+                    style="color: red"
+                    href="#"
+                    >نفت و گاز</b-dropdown-item
+                  >
+                  <b-dropdown-item href="#">پالایشی</b-dropdown-item>
+                  <b-dropdown-item href="#">پتروشیمی</b-dropdown-item>
+                </b-nav-item-dropdown>
 
-                <b-nav-item class="ml-2 pt-1" href="#" style="   font-weight: bold; font-weight: bold;">
-                  <h6><b style="color: #bea44d"> اقتصاد </b></h6>
+                <b-nav-item
+                  class="ml-2 pt-1"
+                  href="#"
+                  style="font-weight: bold"
+                >
+                  <h6>
+                    <b style="color: #bea44d; font-size: 1.2em"> اقتصاد </b>
+                  </h6>
                 </b-nav-item>
 
-                <b-nav-item class="ml-2 pt-1" href="#" style="font-size: 1.2rem;font-weight: bold;">
-                  <h6><b style="color: #bea44d"> سهام </b></h6>
+                <b-nav-item
+                  class="ml-2 pt-1"
+                  href="#"
+                  style="font-weight: bold"
+                >
+                  <h6>
+                    <b style="color: #bea44d; font-size: 1.2rem"> سهام </b>
+                  </h6>
                 </b-nav-item>
 
-              
-                  <b-nav-item-dropdown text="فلزات" style="font-size: 1.2rem;">
-                    <b-dropdown-item
-                      dir="rtl"
-                      align="right"
-                      style="color: red"
-                      href="#"
-                      >فلزات گرانبها</b-dropdown-item
-                    >
-                    <b-dropdown-item href="#">فلزات غیر آهنی</b-dropdown-item>
-                    <b-dropdown-item href="#">زنجیره فولاد</b-dropdown-item>
-                  </b-nav-item-dropdown>
+                <b-nav-item-dropdown
+                  text="فلزات"
+                  style="font-size: 1.2rem; font-weight: bold"
+                >
+                  <b-dropdown-item
+                    dir="rtl"
+                    align="right"
+                    style="color: red"
+                    href="#"
+                    >فلزات گرانبها</b-dropdown-item
+                  >
+                  <b-dropdown-item href="#">فلزات غیر آهنی</b-dropdown-item>
+                  <b-dropdown-item href="#">زنجیره فولاد</b-dropdown-item>
+                </b-nav-item-dropdown>
 
-                      <b-nav-item class="ml-2 pt-1" href="#" style="font-size: 1.2rem;font-weight: bold;">
-                  <h6><b style="color: #bea44d"> بیشتر </b></h6>
+                <b-nav-item class="ml-2" href="#" style="font-weight: bold">
+                  <h6>
+                    <b style="color: #bea44d; font-size: 1.2rem"> بیشتر </b>
+                  </h6>
                 </b-nav-item>
-
 
                 <b-nav-item
                   class="ml-2"
@@ -114,7 +131,6 @@
         </b-row>
 
         <!-- add new -->
-
         <div>
           <b-modal
             v-model="showCreateModal"
@@ -170,7 +186,16 @@
           </template>
         </v-snackbar>
 
-        <router-view class="home" />
+        <b-row>
+          <b-col class="watchlist" cols="4">
+           
+          </b-col>
+
+          <b-col cols="8" class="p-0">
+            <router-view class="home" />
+          </b-col>
+        </b-row>
+
 
         <b-row class="footer" align="center">
           <hr />
@@ -210,7 +235,7 @@
         </b-row>
       </b-col>
 
-      <b-col cols="1"> </b-col>
+      <b-col cols="2"> </b-col>
     </b-row>
   </v-app>
 </template>
@@ -290,7 +315,6 @@ export default {
   // height: 100px;
   // padding: 20px;
   margin: 20px;
-
 }
 
 ::v-deep .nav-link :hover {
@@ -299,36 +323,33 @@ export default {
 }
 
 ::v-deep .dropdown-menu {
+  position: absolute;
+  color: #af8473 !important;
+
+  margin: 0;
+  font-size: 1rem;
+  text-align: right;
+  list-style: -moz-element() !important;
+  background-color: rgb(255, 255, 255) !important ;
+  background-clip: calc();
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  box-shadow: 1px 1px 6px 1px  #000000;
+
   
-    position: absolute;
-    display: -moz-marker;
-
-    margin: 0;
-    font-size: 1rem;
-    color: #212529 ;
-    text-align: right;
-    list-style: -moz-element() !important;
-    background-color: rgb(223, 219, 219) !important ;
-    background-clip: calc();
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 1.2em;
+  
 }
-
-
-
-
 
 ::v-deep a.dropdown-item {
   display: block;
   width: 100%;
   height: 100%;
-  padding-right: 1em ;
-    padding-left: 0 !important ;
-    
+  padding-right: 1em;
+  padding-left: 0 !important ;
 
   clear: both;
   font-weight: 400;
-  color: #242c25;
+  color: #50ad5c;
   text-align: right !important;
   text-decoration: none;
   white-space: nowrap;
@@ -338,43 +359,37 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
-  padding-right: 1em ;
-    padding-left: 0 !important ;
+  padding-right: 1em;
+  padding-left: 0 !important ;
 
   clear: both;
   font-weight: 400;
-  color: #2b352b !important ; 
+  color: #1d201d !important ;
   text-align: right !important;
   text-decoration: none;
   white-space: nowrap;
-      border-radius: 1.2em !important;
-
+  border-radius: 1.2em !important;
 }
 
-
-
-
 .topnav {
-  background-color: rgb(201, 200, 209) !important;
+  background-color:#c8cfc7 !important;
   padding-left: 10px;
   border-radius: 14px;
 }
 
 .signup {
-  background-color: rgb(198, 198, 233);
+  background-color: rgb(228, 236, 227);
   border-radius: 8px;
   height: 35px;
-  color: #3e5eec;
+  color: #0c4716;
 }
 
 .login {
-  background-color: rgb(7, 81, 243);
+  background-color: rgb(24, 65, 20);
   border-radius: 10px;
   color: #f4f5f4;
   height: 35px;
 }
-
-
 
 .test {
   text-align: right !important;
@@ -420,7 +435,9 @@ a {
 
 .navbar.navbar-dark.bg-dark {
   background-color: #10503b !important;
-  border-radius: 20px;
+  border-radius: 13px;
+  
+  // height: 150px;
 }
 .modal-header {
   background-color: #10503b !important;
@@ -428,5 +445,9 @@ a {
 
 .footer {
   background-color: #c8cfc7;
+}
+
+.watchlist {
+  border: solid black;
 }
 </style>
