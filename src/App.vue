@@ -1,11 +1,11 @@
 <template>
   <v-app class="home" style="font-family: IRYekan">
     <b-row dir="rtl">
-      <b-col cols="2"> </b-col>
+      <b-col cols="1"> </b-col>
 
-      <b-col cols="8">
-        <b-row class="topnav p-4">
-          <b-col cols="4">
+      <b-col cols="10">
+        <b-row class="topnav pt-4">
+          <b-col class="col-sm-3 brand">
             <b-navbar-brand>
               <router-link to="/">
                 <h4><b style="color: black"> روند 24 </b></h4>
@@ -13,18 +13,37 @@
             </b-navbar-brand>
           </b-col>
 
-          <b-col cols="6">
-            <b-form-input placeholder="جستجو"></b-form-input>
+          <b-col class="col-sm-6 search">
+            <b-row>
+              <v-text-field
+                placeholder="جستجو"
+                outlined
+                color="black"
+                class="pb-1"
+              >
+                <template slot="append">
+                  <v-icon class="mb-2" @click="search()"> search </v-icon>
+                </template>
+              </v-text-field>
+            </b-row>
           </b-col>
 
-          <b-col cols-sm="4" cols-md="4" cols-lg="2">
-            <b-row>
+          <b-col class="col-sm-3" align="center">
+            <v-btn color="black" elevation="4" rounded large>
+              <p style="color: white">
+                <v-icon> login </v-icon>
+                ورود
+              </p>
+            </v-btn>
+            <!-- <b-row>
               <b-col class="signup">
                 <p class="p-1 pr-8">عضویت</p>
               </b-col>
 
-              <b-col class="login"> <p class="p-1 pr-8">ورود</p> </b-col>
-            </b-row>
+              <b-col class="login"> 
+                <p class="pt-2">ورود</p>
+              </b-col>
+            </b-row> -->
           </b-col>
         </b-row>
 
@@ -54,7 +73,9 @@
 
                 <b-nav-item-dropdown
                   text="انرژی"
-                  style="font-size: 1.2rem; font-weight: bold"
+                  style="font-size: 1.2rem; 
+                  <!-- font-weight: bold -->
+                  "
                 >
                   <b-dropdown-item
                     dir="rtl"
@@ -70,10 +91,10 @@
                 <b-nav-item
                   class="ml-2 pt-1"
                   href="#"
-                  style="font-weight: bold"
+                  style=" font-weight: bold"
                 >
                   <h6>
-                    <b style="color: #bea44d; font-size: 1.2em"> اقتصاد </b>
+                    <p style="color: #bea44d; font-size: 1.2em"> اقتصاد </p>
                   </h6>
                 </b-nav-item>
 
@@ -83,13 +104,13 @@
                   style="font-weight: bold"
                 >
                   <h6>
-                    <b style="color: #bea44d; font-size: 1.2rem"> سهام </b>
+                    <p style="color: #bea44d; font-size: 1.2rem"> سهام </p>
                   </h6>
                 </b-nav-item>
 
                 <b-nav-item-dropdown
                   text="فلزات"
-                  style="font-size: 1.2rem; font-weight: bold"
+                  style="font-size: 1.2rem;"
                 >
                   <b-dropdown-item
                     dir="rtl"
@@ -104,7 +125,7 @@
 
                 <b-nav-item class="ml-2" href="#" style="font-weight: bold">
                   <h6>
-                    <b style="color: #bea44d; font-size: 1.2rem"> بیشتر </b>
+                    <p style="color: #bea44d; font-size: 1.2rem"> بیشتر </p>
                   </h6>
                 </b-nav-item>
 
@@ -187,15 +208,12 @@
         </v-snackbar>
 
         <b-row>
-          <b-col class="watchlist" cols="4">
-           
-          </b-col>
+          <b-col class="watchlist col-lg-2 col-sm-12"> </b-col>
 
-          <b-col cols="8" class="p-0">
+          <b-col class="p-0 col-lg-10 col-sm-0">
             <router-view class="home" />
           </b-col>
         </b-row>
-
 
         <b-row class="footer" align="center">
           <hr />
@@ -235,7 +253,7 @@
         </b-row>
       </b-col>
 
-      <b-col cols="2"> </b-col>
+      <b-col cols="1"> </b-col>
     </b-row>
   </v-app>
 </template>
@@ -268,6 +286,9 @@ export default {
     this.showBtn();
   },
   methods: {
+    search() {
+      console.log("sdsdd");
+    },
     checkLogout() {
       this.openCreateModal();
     },
@@ -325,7 +346,6 @@ export default {
 ::v-deep .dropdown-menu {
   position: absolute;
   color: #af8473 !important;
-
   margin: 0;
   font-size: 1rem;
   text-align: right;
@@ -334,25 +354,19 @@ export default {
   background-clip: calc();
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5em;
-  box-shadow: 1px 1px 6px 1px  #000000;
-
-  
-  
+  box-shadow: 1px 1px 30px 1px  #000000;
 }
 
 ::v-deep a.dropdown-item {
-  display: block;
   width: 100%;
   height: 100%;
   padding-right: 1em;
   padding-left: 0 !important ;
 
-  clear: both;
   font-weight: 400;
   color: #50ad5c;
   text-align: right !important;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 ::v-deep a.dropdown-item:hover {
@@ -372,9 +386,10 @@ export default {
 }
 
 .topnav {
-  background-color:#c8cfc7 !important;
+  background-color: #c8cfc7 !important;
   padding-left: 10px;
   border-radius: 14px;
+  height: 100px;
 }
 
 .signup {
@@ -388,7 +403,8 @@ export default {
   background-color: rgb(24, 65, 20);
   border-radius: 10px;
   color: #f4f5f4;
-  height: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 .test {
@@ -436,7 +452,7 @@ a {
 .navbar.navbar-dark.bg-dark {
   background-color: #10503b !important;
   border-radius: 13px;
-  
+
   // height: 150px;
 }
 .modal-header {
@@ -449,5 +465,33 @@ a {
 
 .watchlist {
   border: solid black;
+}
+
+::v-deep .v-text-field.v-text-field--enclosed .v-text-field__details {
+  padding-top: 0px;
+  margin-bottom: 0px !important;
+}
+
+.v-input__control {
+  display: flex;
+  flex-direction: column;
+  height: 44px !important;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  min-width: 0;
+  width: 100%;
+}
+
+.brand {
+  padding: 0px !important;
+}
+
+.search {
+  //  padding-left: 35px !important;
+}
+
+::v-deep .v-text-field--outlined > .v-input__control > .v-input__slot {
+  align-items: stretch;
+  min-height: 40px !important;
 }
 </style>
