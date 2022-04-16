@@ -1,10 +1,10 @@
 <template>
-  <v-app class="home" style="font-family: IRYekan">
-    <b-row dir="rtl">
+  <v-app style="font-family: IRYekan">
+    <b-row class="home" dir="rtl">
       <b-col cols="1"> </b-col>
 
       <b-col cols="10">
-        <b-row class="topnav pt-4">
+        <b-row class="topnav pt-3">
           <b-col class="col-sm-3 brand">
             <b-navbar-brand>
               <router-link to="/">
@@ -13,17 +13,21 @@
             </b-navbar-brand>
           </b-col>
 
-          <b-col class="col-sm-6 search">
+          <b-col class="col-sm-6 ">
             <b-row>
               <v-text-field
                 placeholder="جستجو"
                 outlined
-                color="black"
-                class="pb-1"
+                color="#10503b"
+                class="search pb-1"
+                style="
+                <!-- border-radius: 15px;
+                -->"
               >
                 <template slot="append">
                   <v-icon class="mb-2" @click="search()"> search </v-icon>
                 </template>
+                
               </v-text-field>
             </b-row>
           </b-col>
@@ -47,7 +51,7 @@
           </b-col>
         </b-row>
 
-        <b-row>
+        <b-row class="mr-3 ml-3">
           <b-navbar toggleable="lg" type="dark" variant="dark" class="downnav">
             <!-- <div>
           <b-navbar variant="faded" type="light">
@@ -65,36 +69,45 @@
 
             <b-collapse class="mr-15" id="nav-collapse" is-nav>
               <b-navbar-nav>
-                <b-nav-item class="ml-2" href="#">
-                  <h6>
-                    <b style="color: #bea44d"> </b>
-                  </h6>
-                </b-nav-item>
-
                 <b-nav-item-dropdown
                   text="انرژی"
-                  style="font-size: 1.2rem; 
-                  <!-- font-weight: bold -->
-                  "
+                  style="font-size: 1.2rem;
+                   text-shadow: 2px 4px 6px #070707; 
+                  <!-- font-weight: bold --> "
                 >
                   <b-dropdown-item
                     dir="rtl"
                     align="right"
-                    style="color: red"
                     href="#"
+                    style="text-shadow: none; font-size:0.85em"
                     >نفت و گاز</b-dropdown-item
                   >
-                  <b-dropdown-item href="#">پالایشی</b-dropdown-item>
-                  <b-dropdown-item href="#">پتروشیمی</b-dropdown-item>
+                  <hr class="mt-0 mb-0" style="color:green;">
+                  <b-dropdown-item class="pl-3" style="text-shadow: none; font-size:0.85em;  text-align:center; " href="#"
+                    >پالایشی</b-dropdown-item
+                  >
+                  <hr class="mt-0 mb-0" style="color:green" >
+
+                  <b-dropdown-item style="text-shadow: none; font-size:0.85em" href="#"
+                    >پتروشیمی</b-dropdown-item
+                  >
                 </b-nav-item-dropdown>
 
                 <b-nav-item
                   class="ml-2 pt-1"
                   href="#"
-                  style=" font-weight: bold"
+                  style="font-weight: bold"
                 >
                   <h6>
-                    <p style="color: #bea44d; font-size: 1.2em"> اقتصاد </p>
+                    <p
+                      style="
+                        color: #bea44d;
+                        font-size: 1.2em;
+                        text-shadow: 2px 4px 6px #070707;
+                      "
+                    >
+                      اقتصاد
+                    </p>
                   </h6>
                 </b-nav-item>
 
@@ -104,28 +117,51 @@
                   style="font-weight: bold"
                 >
                   <h6>
-                    <p style="color: #bea44d; font-size: 1.2rem"> سهام </p>
+                    <p
+                      style="
+                        color: #bea44d;
+                        font-size: 1.2rem;
+                        text-shadow: 2px 4px 6px #070707;
+                      "
+                    >
+                      سهام
+                    </p>
                   </h6>
                 </b-nav-item>
 
                 <b-nav-item-dropdown
                   text="فلزات"
-                  style="font-size: 1.2rem;"
+                  style="font-size: 1.2rem; text-shadow: 2px 4px 6px #070707"
                 >
                   <b-dropdown-item
                     dir="rtl"
                     align="right"
-                    style="color: red"
+                    style="text-shadow: none"
                     href="#"
                     >فلزات گرانبها</b-dropdown-item
                   >
-                  <b-dropdown-item href="#">فلزات غیر آهنی</b-dropdown-item>
-                  <b-dropdown-item href="#">زنجیره فولاد</b-dropdown-item>
+                  <hr class="mt-0 mb-0" style="color:green">
+                  <b-dropdown-item style="text-shadow: none" href="#"
+                    >فلزات غیر آهنی</b-dropdown-item
+                  >
+                  <hr class="mt-0 mb-0" style="color:green">
+
+                  <b-dropdown-item style="text-shadow: none" href="#"
+                    >زنجیره فولاد</b-dropdown-item
+                  >
                 </b-nav-item-dropdown>
 
                 <b-nav-item class="ml-2" href="#" style="font-weight: bold">
                   <h6>
-                    <p style="color: #bea44d; font-size: 1.2rem"> بیشتر </p>
+                    <p
+                      style="
+                        color: #bea44d;
+                        font-size: 1.2rem;
+                        text-shadow: 2px 4px 6px #070707;
+                      "
+                    >
+                      بیشتر
+                    </p>
                   </h6>
                 </b-nav-item>
 
@@ -207,15 +243,17 @@
           </template>
         </v-snackbar>
 
-        <b-row>
-          <b-col class="watchlist col-lg-2 col-sm-12"> </b-col>
+        <b-row class="mr-4 ml-4">
+          <b-col cols="8" class="main">
+                 <router-view />
+             </b-col>
 
-          <b-col class="p-0 col-lg-10 col-sm-0">
-            <router-view class="home" />
+          <b-col cols="4" class="watchlist ">
+       
           </b-col>
         </b-row>
 
-        <b-row class="footer" align="center">
+        <b-row class="footer mr-4 ml-4" align="center">
           <hr />
 
           <b-col>
@@ -354,7 +392,7 @@ export default {
   background-clip: calc();
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5em;
-  box-shadow: 1px 1px 30px 1px  #000000;
+  box-shadow: 1px 1px 30px 1px #000000;
 }
 
 ::v-deep a.dropdown-item {
@@ -362,7 +400,6 @@ export default {
   height: 100%;
   padding-right: 1em;
   padding-left: 0 !important ;
-
   font-weight: 400;
   color: #50ad5c;
   text-align: right !important;
@@ -370,12 +407,11 @@ export default {
 }
 
 ::v-deep a.dropdown-item:hover {
-  display: block;
+  // display: block;
   width: 100%;
   height: 100%;
   padding-right: 1em;
   padding-left: 0 !important ;
-
   clear: both;
   font-weight: 400;
   color: #1d201d !important ;
@@ -389,7 +425,12 @@ export default {
   background-color: #c8cfc7 !important;
   padding-left: 10px;
   border-radius: 14px;
-  height: 100px;
+  height: 70px;
+  border: #171817;
+  box-shadow: 2px 4px 6px rgb(22, 22, 22);
+}
+.downnav {
+  box-shadow: 2px 4px 6px rgb(7, 7, 7);
 }
 
 .signup {
@@ -416,6 +457,7 @@ export default {
 .hobabptn :hover {
   background-color: none !important;
 }
+
 p {
   padding: 0%;
   margin: 0%;
@@ -438,11 +480,11 @@ a {
 }
 
 .home {
-  background-color: #e8ede7;
+  background-color: #eceaea;
 }
 
 .bg {
-  background-color: rgb(223, 221, 221);
+  background-color: rgb(211, 18, 18);
 }
 
 .footer {
@@ -464,7 +506,11 @@ a {
 }
 
 .watchlist {
-  border: solid black;
+  border-style: outset;
+  box-shadow: 2px 4px 6px rgb(22, 22, 22);
+}
+.main {
+  // border: solid #10503b;
 }
 
 ::v-deep .v-text-field.v-text-field--enclosed .v-text-field__details {
@@ -486,9 +532,12 @@ a {
   padding: 0px !important;
 }
 
-.search {
-  //  padding-left: 35px !important;
-}
+.search {  
+    border-radius: 35px;
+  }
+
+
+
 
 ::v-deep .v-text-field--outlined > .v-input__control > .v-input__slot {
   align-items: stretch;

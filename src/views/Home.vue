@@ -3,71 +3,401 @@
     <div id="nav">
       <br />
 
-      <!-- <b-row>
-        <div align="center">
-          <h3>کاربر گرامی خوش آمدید</h3>
-        </div>
-        <b-col cols="3"> </b-col>
+      <b-row>
+        <b-col cols="10">
+          <b-row>
+            <b-tabs class="mt-" align="left">
+              <b-row>
+                <b-tab title="همه" :title-link-class="'tab-title-class'">
+                  <div>
+                    <b-table
+                      :items="AllUsers"
+                      :fields="Customerfields"
+                      striped
+                      responsive="sm"
+                      hover
+                      :busy="customerTableLoading"
+                      loading-text="در حال بارگیری ..."
+                    >
+                      <template #table-busy>
+                        <div class="text-center my-2">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>در حال دریافت اطلاعات...</strong>
+                        </div>
+                      </template>
 
-        <b-col cols="6">
-          <div dir="rtl">
-            <b-card class="mt-3" border-variant="dark">
-              <template #header>
-                <div style="text-align: center">
-                  <p style="color: white" class="mb-0">ورود</p>
-                </div>
-              </template>
+                      <template #cell(details)="row">
+                        <v-icon
+                          @click="showDetails(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >account_box</v-icon
+                        >
+                      </template>
 
-              <b-form @submit="onSubmit">
-                <v-text-field
-                  v-model="form.Username"
-                  placeholder="نام کاربری"
-                  required
-                  outlined
-                  dense
-                  :rules="[phoneRules.required]"
-                  color="#10503B"
-                />
+                      <template #cell(CustomerScores)="row">
+                        <v-icon
+                          @click="showCustomerScores(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >view_list</v-icon
+                        >
+                      </template>
 
-                <v-text-field
-                  :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'"
-                  v-model="form.Password"
-                  :type="show4 ? 'text' : 'password'"
-                  required
-                  placeholder="رمز عبور"
-                  @click:append="show4 = !show4"
-                  outlined
-                  dense
-                  :rules="[phoneRules.required]"
-                  color="#10503B"
-                ></v-text-field>
+                      <template #cell(CustomerPrograms)="row">
+                        <v-icon
+                          @click="showCustomerPrograms(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >poll</v-icon
+                        >
+                      </template>
 
-                <br />
-                <div class="container">
-                  <v-btn
-                    class="btnsize ml-1"
-                    elevation="5"
-                    rounded
-                    large
-                    type="submit"
-                    variant="primary"
-                    :loading="loadingbtn"
-                    style="color: white"
-                    color="#10503B"
-                    >ورود
-                  </v-btn>
-                  
-                  <a href="/ForgotPassword" style="text-decoration: none">
-                    رمز عبور خود را فراموش کردید؟
-                  </a>
-                </div>
-              </b-form>
-            </b-card>
-          </div>
+                      <template #cell(addingScores)="row">
+                        <v-icon
+                          align="center"
+                          @click="addScoreToCustomer(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >add_circle</v-icon
+                        >
+                      </template>
+
+                      <template #cell(score)="row">
+                        <v-icon
+                          align="center"
+                          @click="showScore(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >star_rate</v-icon
+                        >
+                      </template>
+
+                      <template #cell(actions)="row">
+                        <v-icon
+                          @click="editCustRow(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >edit</v-icon
+                        >
+
+                        <v-icon
+                          @click="deleteCustRow(row)"
+                          style="font-size: 20px; color: #f7b73a"
+                          >delete_outline</v-icon
+                        >
+                      </template>
+                    </b-table>
+                  </div>
+                </b-tab>
+                <b-tab title=" نفت " :title-link-class="'tab-title-class'">
+                  <div>
+                    <b-table
+                      :items="AllUsers"
+                      :fields="Customerfields"
+                      striped
+                      responsive="sm"
+                      hover
+                      :busy="customerTableLoading"
+                      loading-text="در حال بارگیری ..."
+                    >
+                      <template #table-busy>
+                        <div class="text-center my-2">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>در حال دریافت اطلاعات...</strong>
+                        </div>
+                      </template>
+
+                      <template #cell(details)="row">
+                        <v-icon
+                          @click="showDetails(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >account_box</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerScores)="row">
+                        <v-icon
+                          @click="showCustomerScores(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >view_list</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerPrograms)="row">
+                        <v-icon
+                          @click="showCustomerPrograms(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >poll</v-icon
+                        >
+                      </template>
+
+                      <template #cell(addingScores)="row">
+                        <v-icon
+                          align="center"
+                          @click="addScoreToCustomer(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >add_circle</v-icon
+                        >
+                      </template>
+
+                      <template #cell(score)="row">
+                        <v-icon
+                          align="center"
+                          @click="showScore(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >star_rate</v-icon
+                        >
+                      </template>
+
+                      <template #cell(actions)="row">
+                        <v-icon
+                          @click="editCustRow(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >edit</v-icon
+                        >
+
+                        <v-icon
+                          @click="deleteCustRow(row)"
+                          style="font-size: 20px; color: #f7b73a"
+                          >delete_outline</v-icon
+                        >
+                      </template>
+                    </b-table>
+                  </div>
+                </b-tab>
+                <b-tab title="اسپرد نفت" :title-link-class="'tab-title-class'">
+                  <div>
+                    <b-table
+                      :items="AllUsers"
+                      :fields="Customerfields"
+                      striped
+                      responsive="sm"
+                      hover
+                      :busy="customerTableLoading"
+                      loading-text="در حال بارگیری ..."
+                    >
+                      <template #table-busy>
+                        <div class="text-center my-2">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>در حال دریافت اطلاعات...</strong>
+                        </div>
+                      </template>
+
+                      <template #cell(details)="row">
+                        <v-icon
+                          @click="showDetails(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >account_box</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerScores)="row">
+                        <v-icon
+                          @click="showCustomerScores(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >view_list</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerPrograms)="row">
+                        <v-icon
+                          @click="showCustomerPrograms(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >poll</v-icon
+                        >
+                      </template>
+
+                      <template #cell(addingScores)="row">
+                        <v-icon
+                          align="center"
+                          @click="addScoreToCustomer(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >add_circle</v-icon
+                        >
+                      </template>
+
+                      <template #cell(score)="row">
+                        <v-icon
+                          align="center"
+                          @click="showScore(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >star_rate</v-icon
+                        >
+                      </template>
+
+                      <template #cell(actions)="row">
+                        <v-icon
+                          @click="editCustRow(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >edit</v-icon
+                        >
+
+                        <v-icon
+                          @click="deleteCustRow(row)"
+                          style="font-size: 20px; color: #f7b73a"
+                          >delete_outline</v-icon
+                        >
+                      </template>
+                    </b-table>
+                  </div>
+                </b-tab>
+
+                <b-tab title="CFTC" :title-link-class="'tab-title-class'">
+                  <div>
+                    <b-table
+                      :items="AllUsers"
+                      :fields="Customerfields"
+                      striped
+                      responsive="sm"
+                      hover
+                      :busy="customerTableLoading"
+                      loading-text="در حال بارگیری ..."
+                    >
+                      <template #table-busy>
+                        <div class="text-center my-2">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>در حال دریافت اطلاعات...</strong>
+                        </div>
+                      </template>
+
+                      <template #cell(details)="row">
+                        <v-icon
+                          @click="showDetails(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >account_box</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerScores)="row">
+                        <v-icon
+                          @click="showCustomerScores(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >view_list</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerPrograms)="row">
+                        <v-icon
+                          @click="showCustomerPrograms(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >poll</v-icon
+                        >
+                      </template>
+
+                      <template #cell(addingScores)="row">
+                        <v-icon
+                          align="center"
+                          @click="addScoreToCustomer(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >add_circle</v-icon
+                        >
+                      </template>
+
+                      <template #cell(score)="row">
+                        <v-icon
+                          align="center"
+                          @click="showScore(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >star_rate</v-icon
+                        >
+                      </template>
+
+                      <template #cell(actions)="row">
+                        <v-icon
+                          @click="editCustRow(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >edit</v-icon
+                        >
+
+                        <v-icon
+                          @click="deleteCustRow(row)"
+                          style="font-size: 20px; color: #f7b73a"
+                          >delete_outline</v-icon
+                        >
+                      </template>
+                    </b-table>
+                  </div>
+                </b-tab>
+
+                <b-tab title=" سایر " :title-link-class="'tab-title-class'">
+                  <div>
+                    <b-table
+                      :items="AllUsers"
+                      :fields="Customerfields"
+                      striped
+                      responsive="sm"
+                      hover
+                      :busy="customerTableLoading"
+                      loading-text="در حال بارگیری ..."
+                    >
+                      <template #table-busy>
+                        <div class="text-center my-2">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>در حال دریافت اطلاعات...</strong>
+                        </div>
+                      </template>
+
+                      <template #cell(details)="row">
+                        <v-icon
+                          @click="showDetails(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >account_box</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerScores)="row">
+                        <v-icon
+                          @click="showCustomerScores(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >view_list</v-icon
+                        >
+                      </template>
+
+                      <template #cell(CustomerPrograms)="row">
+                        <v-icon
+                          @click="showCustomerPrograms(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >poll</v-icon
+                        >
+                      </template>
+
+                      <template #cell(addingScores)="row">
+                        <v-icon
+                          align="center"
+                          @click="addScoreToCustomer(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >add_circle</v-icon
+                        >
+                      </template>
+
+                      <template #cell(score)="row">
+                        <v-icon
+                          align="center"
+                          @click="showScore(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >star_rate</v-icon
+                        >
+                      </template>
+
+                      <template #cell(actions)="row">
+                        <v-icon
+                          @click="editCustRow(row)"
+                          style="font-size: 20px; color: #0f6b4d"
+                          >edit</v-icon
+                        >
+
+                        <v-icon
+                          @click="deleteCustRow(row)"
+                          style="font-size: 20px; color: #f7b73a"
+                          >delete_outline</v-icon
+                        >
+                      </template>
+                    </b-table>
+                  </div>
+                </b-tab>
+
+              
+              </b-row>
+            </b-tabs>
+          </b-row>
         </b-col>
+      </b-row>
 
-        <b-col cols="3"> </b-col>
-      </b-row> -->
       <br />
       <br />
       <br />
@@ -120,6 +450,16 @@ export default {
 
   data() {
     return {
+      AllUsers: [],
+
+      Customerfields: [
+        { FullName: "نام" },
+        { details: "قیمت" },
+        { CustomerScores: " آخرین تغییرات%" },
+        { CustomerPrograms: "تاریخ" },
+        { addingScores: "نمودار" },
+      ],
+
       IsAdmin: "",
       loadingbtn: false,
       //snack
@@ -184,6 +524,7 @@ export default {
 };
 </script>
 
+
 <style scope>
 p {
   padding: 0%;
@@ -201,6 +542,6 @@ p {
 }
 
 .card-header {
-  background-color: #10503B;
+  background-color: #10503b;
 }
 </style>
