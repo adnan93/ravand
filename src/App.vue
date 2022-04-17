@@ -1,8 +1,7 @@
 <template>
   <v-app style="font-family: IRYekan">
-    <b-row class="home" dir="rtl">
+    <b-row class="home ml-1 mr-1" dir="rtl">
       <b-col cols="1"> </b-col>
-
       <b-col cols="10">
         <b-row class="topnav pt-3">
           <b-col class="col-sm-3 brand">
@@ -13,7 +12,7 @@
             </b-navbar-brand>
           </b-col>
 
-          <b-col class="col-sm-6 ">
+          <b-col class="col-sm-6">
             <b-row>
               <v-text-field
                 placeholder="جستجو"
@@ -27,7 +26,6 @@
                 <template slot="append">
                   <v-icon class="mb-2" @click="search()"> search </v-icon>
                 </template>
-                
               </v-text-field>
             </b-row>
           </b-col>
@@ -79,16 +77,25 @@
                     dir="rtl"
                     align="right"
                     href="#"
-                    style="text-shadow: none; font-size:0.85em"
+                    style="text-shadow: none; font-size: 0.85em"
                     >نفت و گاز</b-dropdown-item
                   >
-                  <hr class="mt-0 mb-0" style="color:green;">
-                  <b-dropdown-item class="pl-3" style="text-shadow: none; font-size:0.85em;  text-align:center; " href="#"
+                  <hr class="mt-0 mb-0" style="color: green" />
+                  <b-dropdown-item
+                    class="pl-3"
+                    style="
+                      text-shadow: none;
+                      font-size: 0.85em;
+                      text-align: center;
+                    "
+                    href="#"
                     >پالایشی</b-dropdown-item
                   >
-                  <hr class="mt-0 mb-0" style="color:green" >
+                  <hr class="mt-0 mb-0" style="color: green" />
 
-                  <b-dropdown-item style="text-shadow: none; font-size:0.85em" href="#"
+                  <b-dropdown-item
+                    style="text-shadow: none; font-size: 0.85em"
+                    href="#"
                     >پتروشیمی</b-dropdown-item
                   >
                 </b-nav-item-dropdown>
@@ -140,11 +147,11 @@
                     href="#"
                     >فلزات گرانبها</b-dropdown-item
                   >
-                  <hr class="mt-0 mb-0" style="color:green">
+                  <hr class="mt-0 mb-0" style="color: green" />
                   <b-dropdown-item style="text-shadow: none" href="#"
                     >فلزات غیر آهنی</b-dropdown-item
                   >
-                  <hr class="mt-0 mb-0" style="color:green">
+                  <hr class="mt-0 mb-0" style="color: green" />
 
                   <b-dropdown-item style="text-shadow: none" href="#"
                     >زنجیره فولاد</b-dropdown-item
@@ -244,13 +251,12 @@
         </v-snackbar>
 
         <b-row class="mr-4 ml-4">
+          
           <b-col cols="8" class="main">
-                 <router-view />
-             </b-col>
-
-          <b-col cols="4" class="watchlist ">
-       
+            <router-view />
           </b-col>
+
+          <b-col cols="4" class="watchlist"> </b-col>
         </b-row>
 
         <b-row class="footer mr-4 ml-4" align="center">
@@ -508,6 +514,7 @@ a {
 .watchlist {
   border-style: outset;
   box-shadow: 2px 4px 6px rgb(22, 22, 22);
+  height: 320px;
 }
 .main {
   // border: solid #10503b;
@@ -532,12 +539,9 @@ a {
   padding: 0px !important;
 }
 
-.search {  
-    border-radius: 35px;
-  }
-
-
-
+.search {
+  border-radius: 35px;
+}
 
 ::v-deep .v-text-field--outlined > .v-input__control > .v-input__slot {
   align-items: stretch;
