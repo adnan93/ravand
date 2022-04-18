@@ -2,6 +2,7 @@
   <v-app style="font-family: IRYekan">
     <b-row class="home ml-1 mr-1" dir="rtl">
       <b-col cols="1"> </b-col>
+
       <b-col cols="10">
         <b-row class="topnav pt-3">
           <b-col class="col-sm-3 brand">
@@ -250,16 +251,16 @@
           </template>
         </v-snackbar>
 
-        <b-row class="mr-4 ml-4">
-          
-          <b-col cols="8" class="main">
+        <b-row>
+          <b-col cols="8" class="main p-0">
             <router-view />
+            <!-- <div class="watchlist"> </div> -->
           </b-col>
 
           <b-col cols="4" class="watchlist"> </b-col>
         </b-row>
 
-        <b-row class="footer mr-4 ml-4" align="center">
+        <b-row class="footer" align="center">
           <hr />
 
           <b-col>
@@ -389,12 +390,12 @@ export default {
 
 ::v-deep .dropdown-menu {
   position: absolute;
-  color: #af8473 !important;
+  color: #fffdfd !important;
   margin: 0;
   font-size: 1rem;
   text-align: right;
   list-style: -moz-element() !important;
-  background-color: rgb(255, 255, 255) !important ;
+  background-color: #10503b !important ;
   background-clip: calc();
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5em;
@@ -407,7 +408,7 @@ export default {
   padding-right: 1em;
   padding-left: 0 !important ;
   font-weight: 400;
-  color: #50ad5c;
+  color: #ffffff;
   text-align: right !important;
   text-decoration: none;
 }
@@ -511,11 +512,32 @@ a {
   background-color: #c8cfc7;
 }
 
+
+@media (max-width: 900.98px) {
+  .watchlist {
+    border-style: outset;
+    box-shadow: 2px 4px 6px rgb(22, 22, 22);
+    height: 250px !important;
+    position: fixed;
+    width: 6.8em !important;
+    right: 5em !important;
+    left: 2em !important;
+      top: 27em !important;
+
+  }
+}
+
 .watchlist {
   border-style: outset;
   box-shadow: 2px 4px 6px rgb(22, 22, 22);
-  height: 320px;
+  height: 300px;
+  position: fixed;
+  top: 26em;
+  width: 15%;
+  right: 2em;
+  left: 12em;
 }
+
 .main {
   // border: solid #10503b;
 }

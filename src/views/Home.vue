@@ -17,32 +17,20 @@
         <v-card-title>
           <v-text-field
             v-model="search"
-            append-icon="mdi-magnify"
+            placeholder="جستجو"
             hide-details
-            align="right"
+            align="center"
           ></v-text-field>
         </v-card-title>
         <v-data-table
+          :mobile-breakpoint="320"
+          height="500px"
           :headers="headers"
           :items="desserts"
           :search="search"
         ></v-data-table>
       </v-card>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
 
       <v-snackbar v-model="snackbarGreen" :color="snackColor" dir="rtl">
@@ -79,23 +67,21 @@ export default {
 
       search: "",
       headers: [
+        { text: "أخرين تغييرات (%)",  align: "center", value: "iron" },
+        { text: "قيمت",  align: "center", value: "calories" },
+        { text: "Fat (g)",  align: "center", value: "fat" },
+        { text: "Carbs (g)",  align: "center", value: "carbs" },
+        { text: "تاريخ ",  align: "center", value: "protein" },
         {
-          text: "Dessert (100g serving)",
-          align: "start",
-          filterable: true,
-
+          text: "نام",
+          align: "center",
           value: "name",
         },
-        { text: "Calories", value: "calories" },
-        { text: "Fat (g)", value: "fat" },
-        { text: "Carbs (g)", value: "carbs" },
-        { text: "Protein (g)", value: "protein" },
-        { text: "Iron (%)", value: "iron" },
       ],
 
       desserts: [
         {
-          name: "Frozen Yogurt",
+          name: "Bret",
           calories: 159,
           fat: 6.0,
           carbs: 24,
@@ -103,7 +89,7 @@ export default {
           iron: "1%",
         },
         {
-          name: "Ice cream sandwich",
+          name: "WTI - CL",
           calories: 237,
           fat: 9.0,
           carbs: 37,
@@ -111,7 +97,7 @@ export default {
           iron: "1%",
         },
         {
-          name: "Eclair",
+          name: "نفت دبی",
           calories: 262,
           fat: 16.0,
           carbs: 23,
@@ -119,7 +105,7 @@ export default {
           iron: "7%",
         },
         {
-          name: "Cupcake",
+          name: "نفت شانگ های",
           calories: 305,
           fat: 3.7,
           carbs: 67,
@@ -167,7 +153,7 @@ export default {
           iron: "22%",
         },
         {
-          name: "باب",
+          name: "نفت ایران",
           calories: 518,
           fat: 26.0,
           carbs: 65,
@@ -266,5 +252,19 @@ p {
 
 .card-header {
   background-color: #10503b;
+}
+
+.v-data-table {
+  overflow-y: auto;
+  direction: ltr;
+  text-align: left;
+}
+.li.nav-item {
+  background-color: red;
+}
+
+.nav-link {
+  color: #bea44d !important;
+  margin: 5px !important;
 }
 </style>
