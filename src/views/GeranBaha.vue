@@ -3,36 +3,51 @@
     <div class="pl-0 pr-0" id="nav">
       <br />
 
-      <b-row >
-         <h3 class="tableTitle">  نفت و گاز</h3> </b-row>
-
       <b-row>
+        <b-tabs>
+          <b-tab title="همه" active>
+            <v-card>
+              <v-card-title>
+                <v-text-field
+                  v-model="search"
+                  placeholder="جستجو"
+                  hide-details
+                  align="center"
+                ></v-text-field>
+              </v-card-title>
+              <v-data-table
+                :mobile-breakpoint="320"
+                height="500px"
+                :headers="headers"
+                :items="desserts"
+                :search="search"
+              ></v-data-table>
+            </v-card>
+          </b-tab>
 
-        <b-tabs >
-          <b-tab title="همه" active> </b-tab>
-          <b-tab title="گاز"></b-tab>
-          <b-tab title="اسپرد نفت"></b-tab>
-          <b-tab title="سایر"></b-tab>
+          <b-tab title="طلا">
+            <v-card>
+              <v-card-title>
+                <v-text-field
+                  v-model="search"
+                  placeholder="جستجو"
+                  hide-details
+                  align="center"
+                ></v-text-field>
+              </v-card-title>
+              <v-data-table
+                :mobile-breakpoint="320"
+                height="500px"
+                :headers="headers"
+                :items="desserts"
+                :search="search"
+              ></v-data-table>
+            </v-card>
+          </b-tab>
+          <b-tab title="نقره"></b-tab>
+          
         </b-tabs>
       </b-row>
-
-      <v-card>
-        <v-card-title>
-          <v-text-field
-            v-model="search"
-            placeholder="جستجو"
-            hide-details
-            align="center"
-          ></v-text-field>
-        </v-card-title>
-        <v-data-table
-          :mobile-breakpoint="320"
-          height="500px"
-          :headers="headers"
-          :items="desserts"
-          :search="search"
-        ></v-data-table>
-      </v-card>
 
       <br />
 
@@ -219,6 +234,10 @@ export default {
     //date
     this.today = new Date().toLocaleDateString("fa-IR");
 
+    // if (!window.location.hash) {
+    //   window.location = window.location + "#loaded";
+    //   window.location.reload();
+    // }
   },
 };
 </script>
@@ -264,10 +283,5 @@ p {
 .nav-link {
   color: #bea44d !important;
   margin: 5px !important;
-}
-
-.tableTitle{
-  margin-right: 0.2em;
-  color: #10503b;
 }
 </style>

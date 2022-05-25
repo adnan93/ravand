@@ -11,67 +11,53 @@ const routes = [
     component: Home
   },
 
+  {
+    path: '/Palayesh',
+    name: 'Palayesh',
+    component: () => import('../views/Palayesh.vue')
+  },
   
   {
-    path: '/SignUp',
-    name: 'SignUp',
-    component: () => import('../views/SignUp.vue')
+    path: '/Petrosheme',
+    name: 'Petrosheme',
+    component: () => import('../views/Petrosheme.vue')
   },
 
   {
-    path: '/Announcement',
-    name: 'Announcement',
-    component: () => import('../views/Announcement.vue')
+    path: '/ZangerehFolad',
+    name: 'ZangerehFolad',
+    component: () => import('../views/ZangerehFolad.vue')
   },
-
-  {
-    path: '/ForgotPassword',
-    name: 'ForgotPassword',
-    component: () => import('../views/ForgotPassword.vue')
-  },
-
-
-  {
-    path: '/Customer',
-    name: 'Customer',
-    component: () => import('../views/Customer.vue')
-  }, 
   
-
   {
-    path: '/Customers',
-    name: 'Customers',
-    component: () => import('../views/Customers.vue')
-  }, 
-
-  {
-    path: '/CreateCustomer',
-    name: 'CreateCustomer',
-    component: () => import('../views/CreateCustomer.vue')
-  }, 
-
-  {
-    path: '/AnnouCustomer',
-    name: 'AnnouCustomer',
-    component: () => import('../views/AnnouCustomer.vue')
+    path: '/GeranBaha',
+    name: 'GeranBaha',
+    component: () => import('../views/GeranBaha.vue')
   },
 
   
 
-  
+  {
+    path: '/GhairAhani',
+    name: 'GhairAhani',
+    component: () => import('../views/GhairAhani.vue')
+  },
 
   
 
+  {
+    path: '/Tala',
+    name: 'Tala',
+    component: () => import('../views/Tala.vue')
+  },
 
 
-  
 
 
 
 
-  
- 
-  
+
+
 ]
 
 const router = new VueRouter({

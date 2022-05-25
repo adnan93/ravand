@@ -1,58 +1,56 @@
 <template>
   <v-app style="font-family: IRYekan">
-    <b-row class="home ml-1 mr-1" dir="rtl">
-      <b-col cols="1"> </b-col>
+    <b-col class="home ml-1 mr-1" dir="rtl">
+      
+      <b-row class="topnav ml-1 mr-1 pt-3">
+        <b-col class="brand">
+          <b-navbar-brand>
+            <router-link to="/">
+              <h4><b style="color: black"> روند 24 </b></h4>
+            </router-link>
+          </b-navbar-brand>
+        </b-col>
 
-      <b-col cols="10">
-        <b-row class="topnav pt-3">
-          <b-col class="col-sm-3 brand">
-            <b-navbar-brand>
-              <router-link to="/">
-                <h4><b style="color: black"> روند 24 </b></h4>
-              </router-link>
-            </b-navbar-brand>
-          </b-col>
-
-          <b-col class="col-sm-6">
-            <b-row>
-              <v-text-field
-                placeholder="جستجو"
-                outlined
-                color="#10503b"
-                class="search pb-1"
-                style="
+        <b-col class="col-sm-6">
+          <b-row>
+            <v-text-field
+              placeholder="جستجو"
+              outlined
+              color="#10503b"
+              class="search pb-1"
+              style="
                 <!-- border-radius: 15px;
                 -->"
-              >
-                <template slot="append">
-                  <v-icon class="mb-2" @click="search()"> search </v-icon>
-                </template>
-              </v-text-field>
-            </b-row>
-          </b-col>
+            >
+              <template slot="append">
+                <v-icon class="mb-2" @click="search()"> search </v-icon>
+              </template>
+            </v-text-field>
+          </b-row>
+        </b-col>
 
-          <b-col class="col-sm-3" align="center">
-            <v-btn color="black" elevation="4" rounded large>
-              <p style="color: white">
-                <v-icon> login </v-icon>
-                ورود
-              </p>
-            </v-btn>
-            <!-- <b-row>
+        <b-col class="col-sm-3" align="center">
+          <v-btn color="black" elevation="4" rounded large>
+            <p style="color: white">
+              <v-icon> login </v-icon>
+              ورود
+            </p>
+          </v-btn>
+          <!-- <b-row>
               <b-col class="signup">
                 <p class="p-1 pr-8">عضویت</p>
               </b-col>
 
               <b-col class="login"> 
-                <p class="pt-2">ورود</p>
+                <p class="pt-2">و رود</p>
               </b-col>
             </b-row> -->
-          </b-col>
-        </b-row>
+        </b-col>
+      </b-row>
 
-        <b-row class="mr-3 ml-3">
-          <b-navbar toggleable="lg" type="dark" variant="dark" class="downnav">
-            <!-- <div>
+      <b-row class="mr-5 ml-5">
+        <b-navbar toggleable="lg" type="dark" variant="dark" class="downnav">
+          <!-- <div>
           <b-navbar variant="faded" type="light">
             <b-navbar-brand class="mr-15" href="/">
               <img
@@ -66,240 +64,236 @@
             </b-navbar>
             </div>  -->
 
-            <b-collapse class="mr-15" id="nav-collapse" is-nav>
-              <b-navbar-nav>
-                <b-nav-item-dropdown
-                  text="انرژی"
-                  style="font-size: 1.2rem;
+          <b-collapse class="mr-15" id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <b-nav-item-dropdown
+                text="انرژی"
+                style="font-size: 1.2rem;
                    text-shadow: 2px 4px 6px #070707; 
                   <!-- font-weight: bold --> "
+              >
+                <b-dropdown-item
+                  dir="rtl"
+                  align="right"
+                  href="/"
+                  style="text-shadow: none"
+                  >نفت و گاز</b-dropdown-item
                 >
-                  <b-dropdown-item
-                    dir="rtl"
-                    align="right"
-                    href="#"
-                    style="text-shadow: none; font-size: 0.85em"
-                    >نفت و گاز</b-dropdown-item
-                  >
-                  <hr class="mt-0 mb-0" style="color: green" />
-                  <b-dropdown-item
-                    class="pl-3"
+                <hr class="mt-3 mb-3" style="color: white" />
+                <b-dropdown-item
+                  class="pl-3"
+                  href="/Palayesh"
+                  style="text-shadow: none"
+                  >پالایشی</b-dropdown-item
+                >
+                <hr class="mt-3 mb-3" style="color: white" />
+
+                <b-dropdown-item href="/Petrosheme" style="text-shadow: none"
+                  >پتروشیمی</b-dropdown-item
+                >
+              </b-nav-item-dropdown>
+
+              <b-nav-item class="ml-2 pt-1" href="/Petrosheme" style="font-weight: bold">
+                <h6>
+                  <p
                     style="
-                      text-shadow: none;
-                      font-size: 0.85em;
-                      text-align: center;
+                      color: #bea44d;
+                      font-size: 1.2em;
+                      text-shadow: 2px 4px 6px #070707;
                     "
-                    href="#"
-                    >پالایشی</b-dropdown-item
                   >
-                  <hr class="mt-0 mb-0" style="color: green" />
-
-                  <b-dropdown-item
-                    style="text-shadow: none; font-size: 0.85em"
-                    href="#"
-                    >پتروشیمی</b-dropdown-item
-                  >
-                </b-nav-item-dropdown>
-
-                <b-nav-item
-                  class="ml-2 pt-1"
-                  href="#"
-                  style="font-weight: bold"
-                >
-                  <h6>
-                    <p
-                      style="
-                        color: #bea44d;
-                        font-size: 1.2em;
-                        text-shadow: 2px 4px 6px #070707;
-                      "
-                    >
-                      اقتصاد
-                    </p>
-                  </h6>
-                </b-nav-item>
-
-                <b-nav-item
-                  class="ml-2 pt-1"
-                  href="#"
-                  style="font-weight: bold"
-                >
-                  <h6>
-                    <p
-                      style="
-                        color: #bea44d;
-                        font-size: 1.2rem;
-                        text-shadow: 2px 4px 6px #070707;
-                      "
-                    >
-                      سهام
-                    </p>
-                  </h6>
-                </b-nav-item>
-
-                <b-nav-item-dropdown
-                  text="فلزات"
-                  style="font-size: 1.2rem; text-shadow: 2px 4px 6px #070707"
-                >
-                  <b-dropdown-item
-                    dir="rtl"
-                    align="right"
-                    style="text-shadow: none"
-                    href="#"
-                    >فلزات گرانبها</b-dropdown-item
-                  >
-                  <hr class="mt-0 mb-0" style="color: green" />
-                  <b-dropdown-item style="text-shadow: none" href="#"
-                    >فلزات غیر آهنی</b-dropdown-item
-                  >
-                  <hr class="mt-0 mb-0" style="color: green" />
-
-                  <b-dropdown-item style="text-shadow: none" href="#"
-                    >زنجیره فولاد</b-dropdown-item
-                  >
-                </b-nav-item-dropdown>
-
-                <b-nav-item class="ml-2" href="#" style="font-weight: bold">
-                  <h6>
-                    <p
-                      style="
-                        color: #bea44d;
-                        font-size: 1.2rem;
-                        text-shadow: 2px 4px 6px #070707;
-                      "
-                    >
-                      بیشتر
-                    </p>
-                  </h6>
-                </b-nav-item>
-
-                <b-nav-item
-                  class="ml-2"
-                  @click="checkLogout()"
-                  v-show="showBtn()"
-                >
-                  <h6><b style="color: white">خروج </b></h6>
-                </b-nav-item>
-              </b-navbar-nav>
-            </b-collapse>
-
-            <b-row>
-              <b-col>
-                <b-navbar-toggle
-                  class="mr-2"
-                  style="color: white"
-                  target="nav-collapse"
-                ></b-navbar-toggle>
-              </b-col>
-            </b-row>
-          </b-navbar>
-        </b-row>
-
-        <!-- add new -->
-        <div>
-          <b-modal
-            v-model="showCreateModal"
-            dir="rtl"
-            id="modal-center"
-            title=" خروج"
-            :header-text-variant="headerTextVariant"
-            :header-bg-variant="headerBgVariant"
-          >
-            <h3>آیا از خروج مطمئن هستید ؟</h3>
-            <template #modal-footer>
-              <div class="w-100">
-                <v-btn
-                  class="ml-1"
-                  color="#10503B"
-                  elevation="3"
-                  rounded
-                  larg
-                  outlined
-                  @click="closeCreateModal"
-                  >انصراف
-                </v-btn>
-
-                <v-btn
-                  class="mr-2"
-                  color="#10503B"
-                  style="color: #ffffff"
-                  elevation="3"
-                  rounded
-                  large
-                  @click="logout()"
-                >
-                  بلی
-                </v-btn>
-              </div>
-            </template>
-          </b-modal>
-        </div>
-
-        <v-snackbar v-model="snackbarGreen" color="black" dir="rtl">
-          {{ text }}
-
-          <template v-slot:action="{ attrs }">
-            <v-btn
-              color="dark"
-              rounded
-              v-bind="attrs"
-              text
-              @click="snackbarGreen = false"
-            >
-              x
-            </v-btn>
-          </template>
-        </v-snackbar>
-
-        <b-row>
-          <b-col cols="8" class="main p-0">
-            <router-view />
-            <!-- <div class="watchlist"> </div> -->
-          </b-col>
-
-          <b-col cols="4" class="watchlist"> </b-col>
-        </b-row>
-
-        <b-row class="footer" align="center">
-          <hr />
-
-          <b-col>
-            <div>
-              <!-- <h5 class="place"><b> راه های ارتباطی </b></h5> -->
-              <br />
-              <div>
-                <h6 style="color: white">
-                  شیراز، بلوار شهید رجائی (فرهنگ شهر)، کوچه 30، ساختمان زمرد
+                    اقتصاد
+                  </p>
                 </h6>
-              </div>
+              </b-nav-item>
 
-              <div class="place">
-                <h3>
-                  <a href="tel:07136317299" style="color: red">
-                    071-36317299
-                  </a>
-                </h3>
-              </div>
+              <b-nav-item class="ml-2 pt-1" href="#" style="font-weight: bold">
+                <h6>
+                  <p
+                    style="
+                      color: #bea44d;
+                      font-size: 1.2rem;
+                      text-shadow: 2px 4px 6px #070707;
+                    "
+                  >
+                    سهام
+                  </p>
+                </h6>
+              </b-nav-item>
 
-              <br />
+              <b-nav-item-dropdown
+                text="فلزات"
+                style="font-size: 1.2rem; text-shadow: 2px 4px 6px #070707"
+                href="/GeranBaha"
+              >
+                <b-dropdown-item
+                  class="zangerehFolad"
+                  style="text-shadow: none; color: white"
+                  href="/ZangerehFolad"
+                  >زنجیره فولاد</b-dropdown-item
+                >
+
+                <hr class="mt-3 mb-3" style="color: white" />
+
+                <b-dropdown-item
+                  class="zangerehFolad"
+                  style="text-shadow: none; color: white"
+                  href="/GhairAhani"
+                  >فلزات غیر آهنی</b-dropdown-item
+                >
+
+                <hr class="mt-3 mb-3" style="color: white" />
+
+                <b-nav-item-dropdown text="فلزات گرانبها">
+                </b-nav-item-dropdown>
+
+                <b-dropdown-item
+                  dir="rtl"
+                  align="right"
+                  style="text-shadow: none"
+                  href="/Tala"
+                  >طلا
+                </b-dropdown-item>
+
+                <b-dropdown-item
+                  dir="rtl"
+                  align="right"
+                  style="text-shadow: none"
+                  href="#"
+                  >سایر
+                </b-dropdown-item>
+              </b-nav-item-dropdown>
+
+              <b-nav-item class="ml-2" href="#" style="font-weight: bold">
+                <h6>
+                  <p
+                    style="
+                      color: #bea44d;
+                      font-size: 1.2rem;
+                      text-shadow: 2px 4px 6px #070707;
+                    "
+                  >
+                    بیشتر
+                  </p>
+                </h6>
+              </b-nav-item>
+
+           
+            </b-navbar-nav>
+          </b-collapse>
+
+          <b-row>
+            <b-col>
+              <b-navbar-toggle
+                class="mr-2"
+                style="color: white"
+                target="nav-collapse"
+              ></b-navbar-toggle>
+            </b-col>
+          </b-row>
+        </b-navbar>
+      </b-row>
+
+      <!-- add new -->
+      <div>
+        <b-modal
+          v-model="showCreateModal"
+          dir="rtl"
+          id="modal-center"
+          title=" خروج"
+          :header-text-variant="headerTextVariant"
+          :header-bg-variant="headerBgVariant"
+        >
+          <h3>آیا از خروج مطمئن هستید ؟</h3>
+          <template #modal-footer>
+            <div class="w-100">
+              <v-btn
+                class="ml-1"
+                color="#10503B"
+                elevation="3"
+                rounded
+                larg
+                outlined
+                @click="closeCreateModal"
+                >انصراف
+              </v-btn>
+
+              <v-btn
+                class="mr-2"
+                color="#10503B"
+                style="color: #ffffff"
+                elevation="3"
+                rounded
+                large
+                @click="logout()"
+              >
+                بلی
+              </v-btn>
             </div>
-          </b-col>
-          <hr />
-          <br />
+          </template>
+        </b-modal>
+      </div>
 
-          <h6>
-            <v-icon style="font-size: 20px"> copyright </v-icon>
+      <v-snackbar v-model="snackbarGreen" color="black" dir="rtl">
+        {{ text }}
 
-            کلیه حقوق متعلق به گروه مالی زمرد ‌می ‌باشد.
-          </h6>
-          <br />
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="dark"
+            rounded
+            v-bind="attrs"
+            text
+            @click="snackbarGreen = false"
+          >
+            x
+          </v-btn>
+        </template>
+      </v-snackbar>
 
-          <br />
-        </b-row>
-      </b-col>
+      <b-row class="mainrow">
+        <b-col cols="8" class="main pr-8">
+          <router-view />
+          <!-- <div class="watchlist"> </div> -->
+        </b-col>
 
-      <b-col cols="1"> </b-col>
-    </b-row>
+        <b-col cols="4" class="watchlist"> </b-col>
+      </b-row>
+
+      <b-row class="footer" align="center">
+        <hr />
+
+        <b-col>
+          <div>
+            <!-- <h5 class="place"><b> راه های ارتباطی </b></h5> -->
+            <br />
+            <div>
+              <h6 style="color: white">
+                شیراز، بلوار شهید رجائی (فرهنگ شهر)، کوچه 30، ساختمان زمرد
+              </h6>
+            </div>
+
+            <div class="place">
+              <h3>
+                <a href="tel:07136317299" style="color: red"> 071-36317299 </a>
+              </h3>
+            </div>
+
+            <br />
+          </div>
+        </b-col>
+        <hr />
+        <br />
+
+        <h6>
+          <v-icon style="font-size: 20px"> copyright </v-icon>
+
+          کلیه حقوق متعلق به گروه مالی زمرد ‌می ‌باشد.
+        </h6>
+        <br />
+
+        <br />
+      </b-row>
+    </b-col>
   </v-app>
 </template>
  
@@ -357,8 +351,7 @@ export default {
       this.snackbarGreen = true;
     },
 
-    openCreateModal() {
-      this.showCreateModal = true;
+  openCreateModal() {      this.showCreateModal = true;
     },
 
     closeCreateModal() {
@@ -375,6 +368,7 @@ export default {
   src: local("IRYekan"), url(./font/IRYekan.ttf) format("truetype");
 }
 
+
 ::v-deep .nav-link {
   color: #bea44d !important;
   // font-weight: bold;
@@ -385,7 +379,7 @@ export default {
 
 ::v-deep .nav-link :hover {
   color: #eeedea !important;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 ::v-deep .dropdown-menu {
@@ -394,23 +388,22 @@ export default {
   margin: 0;
   font-size: 1rem;
   text-align: right;
-  list-style: -moz-element() !important;
-  background-color: #10503b !important ;
+  background-color: #0a402e  !important ;
   background-clip: calc();
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5em;
-  box-shadow: 1px 1px 30px 1px #000000;
+  // box-shadow: 1px 1px 30px 1px #000000;
 }
 
 ::v-deep a.dropdown-item {
-  width: 100%;
+ width: 100%;
   height: 100%;
   padding-right: 1em;
   padding-left: 0 !important ;
   font-weight: 400;
   color: #ffffff;
-  text-align: right !important;
   text-decoration: none;
+  margin-right:0.5em ;
 }
 
 ::v-deep a.dropdown-item:hover {
@@ -422,10 +415,9 @@ export default {
   clear: both;
   font-weight: 400;
   color: #1d201d !important ;
-  text-align: right !important;
   text-decoration: none;
-  white-space: nowrap;
   border-radius: 1.2em !important;
+  
 }
 
 .topnav {
@@ -451,7 +443,7 @@ export default {
   background-color: rgb(24, 65, 20);
   border-radius: 10px;
   color: #f4f5f4;
-  height: 50px;
+ height: 50px;
   width: 50px;
 }
 
@@ -512,34 +504,31 @@ a {
   background-color: #c8cfc7;
 }
 
-
 @media (max-width: 900.98px) {
   .watchlist {
     border-style: outset;
     box-shadow: 2px 4px 6px rgb(22, 22, 22);
-    height: 250px !important;
-    position: fixed;
-    width: 6.8em !important;
-    right: 5em !important;
-    left: 2em !important;
-      top: 27em !important;
+    height: 400px !important;
+    width: 310px !important;
+    margin-top: 1em !important;
+    margin-right: 2em !important;
+    margin-bottom: 1em !important;
+  }
 
+  .main {
+    width: 90% !important;
   }
 }
 
 .watchlist {
   border-style: outset;
   box-shadow: 2px 4px 6px rgb(22, 22, 22);
-  height: 300px;
-  position: fixed;
-  top: 26em;
-  width: 15%;
+  height: 400px;
+  // position: fixed;
+  width: 290px;
   right: 2em;
-  left: 12em;
-}
-
-.main {
-  // border: solid #10503b;
+  margin-top: 7.5em;
+  margin-right: 1em;
 }
 
 ::v-deep .v-text-field.v-text-field--enclosed .v-text-field__details {
