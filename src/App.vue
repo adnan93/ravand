@@ -401,10 +401,13 @@ export default {
   padding-right: 1em;
   padding-left: 0 !important ;
   font-weight: 400;
-  color: #ffffff;
+  color: #f0e8e8;
   text-decoration: none;
   margin-right:0.5em ;
 }
+
+
+
 
 ::v-deep a.dropdown-item:hover {
   // display: block;
@@ -417,6 +420,7 @@ export default {
   color: #1d201d !important ;
   text-decoration: none;
   border-radius: 1.2em !important;
+  background-color: rgb(255, 255, 255);
   
 }
 

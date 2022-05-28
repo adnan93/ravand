@@ -293,4 +293,9 @@ p {
   margin-right: 0.2em;
   color: #10503b;
 }
+
+.v-application a {
+    color: red;
+}
+
 </style>
